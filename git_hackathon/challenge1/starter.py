@@ -70,11 +70,12 @@ def main():
     nums = read_numbers_from_csv(csv_path)
     print("Read values:", nums)
 
+    if not nums:
+        print("No valid numeric values found in file.")
+        sys.exit(0)
+
     mean_val = compute_mean(nums)
     median_val = compute_median(nums)
 
     print("Mean:", mean_val)
     print("Median:", median_val)
-
-if __name__ == "__main__":
-    main()
