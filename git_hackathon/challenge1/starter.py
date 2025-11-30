@@ -46,10 +46,20 @@ def compute_mean(values):
 def compute_median(values):
     """Return the median of a list of numbers.
 
-    BUGS: does not handle even-length lists or empty lists correctly.
-    """
-    # TODO: implement proper median
-    return values[0]
+        none are returned for an empty list, odd and even length list supported."""
+    if not values:
+        return None
+
+    sorted_vals = sorted(values)
+    n = len(sorted_vals)
+    mid = n // 2
+
+    if n % 2 == 1:
+        # for odd length the middle values
+        return sorted_vals[mid]
+    else:
+        # for even length, average the two middle values
+        return (sorted_vals[mid - 1] + sorted_vals[mid]) / 2.0
 
 def main():
     if len(sys.argv) < 2:
