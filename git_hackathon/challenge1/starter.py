@@ -5,12 +5,12 @@ def read_numbers_from_csv(path):
 
     BUGS: this function does not correctly handle invalid values or empty lines.
     """
-    numbers = []
+numbers = []
     with open(path, "r") as f:
         for line in f:
             value = line.strip()
-            # TODO: convert value to float and add to numbers
-            # HINT: you should skip values that cannot be converted
+            if value is none:
+                continue
             numbers.append(value)
     return numbers
 
