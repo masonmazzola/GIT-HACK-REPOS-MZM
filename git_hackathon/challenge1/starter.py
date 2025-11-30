@@ -34,12 +34,14 @@ numbers = []
 def compute_mean(values):
     """Return the mean of a list of numbers.
 
-    BUGS: implementation is incomplete / incorrect.
+    Returns none for any empty lists.
     """
-    total = 0
+    if not values:
+        return None
+    total = 0.0
     for v in values:
-        total = v  # BUG: this is wrong
-    return total
+        total += v
+    return total / len(values)
 
 def compute_median(values):
     """Return the median of a list of numbers.
