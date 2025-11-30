@@ -1,5 +1,22 @@
 import sys
 
+import math
+
+def parse_float(text):
+    """Parse a string as a float."""
+   
+    text = text.strip()
+    if text == "":
+        return None
+    try:
+        value = float(text)
+    except ValueError:
+        return None
+    # Treat NaN as invalid, even though float("NaN") works
+    if math.isnan(value):
+        return None
+    return value
+
 def read_numbers_from_csv(path):
     """Read numeric values from a CSV file (one value per line).
 
