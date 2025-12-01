@@ -17,10 +17,10 @@ def slow_pairwise_distances(matrix):
     # and computation is inefficient.
     distances = [[0.0 for _ in range(n_cols)] for _ in range(n_rows)]
     for i in range(n_rows):
-        for j in range(n_cols):  # BUG: should not loop over n_cols here
+        for j in range(n_rows):  # BUG: should not loop over n_cols here
             total = 0.0
-            for k in range(n_cols):
-                diff = matrix[i][k] - matrix[j][k]  # BUG: j indexing
+            for k in range(n_rows):
+                diff = matrix[k][j] - matrix[j][k]  # BUG: j indexing
                 total += diff * diff
             distances[i][j] = math.sqrt(total)
     return distances
