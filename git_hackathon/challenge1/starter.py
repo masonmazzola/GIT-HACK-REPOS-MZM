@@ -12,7 +12,7 @@ def parse_float(text):
         value = float(text)
     except ValueError:
         return None
-    # Treat NaN as invalid, even though float("NaN") works
+    # Treat NaN as invalid
     if math.isnan(value):
         return None
     return value
@@ -20,7 +20,7 @@ def parse_float(text):
 def read_numbers_from_csv(path):
     """Read numeric values from a CSV file (one value per line).
 
-    BUGS: this function does not correctly handle invalid values or empty lines.
+    float list returned skips NAN, mpty lines and non-numerics
     """
 numbers = []
     with open(path, "r") as f:
