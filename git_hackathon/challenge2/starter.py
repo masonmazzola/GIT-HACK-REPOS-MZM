@@ -1,6 +1,18 @@
 import math
 import time
 
+import numpy as np
+
+def fast_pairwise_distances(matrix):
+    """Fpairwise distances using NumPy that is fast, found using google search "optimize pairwise distance using numPy""""
+   
+    X = np.array(matrix, dtype=float)        
+    
+    diffs = X[:, None, :] - X[None, :, :]
+    
+    dists = np.sqrt(np.sum(diffs ** 2, axis=-1))
+    return dists.tolist()
+
 def slow_pairwise_distances(matrix):
     """Very slow, buggy implementation of pairwise distances.
 
