@@ -58,5 +58,15 @@ def demo():
 
     # TODO: implement and call your optimized version here.
 
+# Fast version
+    t2 = time.time()
+    dists_fast = fast_pairwise_distances(data)
+    t3 = time.time()
+
+    print("\nFast distances:")
+    for row in dists_fast:
+        print(row)
+    print(f"Time taken (fast): {t3 - t2:.6f} seconds")
+
 if __name__ == "__main__":
     demo()
