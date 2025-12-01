@@ -29,11 +29,20 @@ def make_histogram(values, output_path):
         print("matplotlib is not available, cannot plot.")
         return
 
-    # BUG: This does not actually plot the values
+    if not values:
+        print("No values to plot; histogram will not be created.")
+        return
+
     plt.figure()
-    # TODO: create a histogram of values
+    plt.hist(values, bins="auto", color="orange", edgecolor="black")
     plt.title("Histogram")
-    # TODO: save to output_path
+    plt.xlabel("Value")
+    plt.ylabel("Frequency")
+    plt.grid(True, linestyle="--", alpha=0.5)
+    plt.tight_layout()
+
+    plt.savefig(output_path)
+    plt.close()
     print("Saving figure to", output_path)
 
 def main():
