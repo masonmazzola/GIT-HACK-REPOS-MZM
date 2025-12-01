@@ -79,3 +79,9 @@ def main():
 
     print("Mean:", mean_val)
     print("Median:", median_val)
+
+# test for correct output
+nums = read_numbers_from_csv("data1.csv")
+print(nums)
+print("Mean:", compute_mean(nums))
+print("Median:", compute_median(nums))
