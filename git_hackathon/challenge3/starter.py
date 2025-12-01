@@ -7,16 +7,21 @@ except ImportError:
 
 def read_values(path):
     """Read numeric values from a text file.
-    BUGS: currently returns strings instead of floats, and does not handle errors.
-    """
-    values = []
+    returns float list. skips invalid and non-numeric lines"""
+    
+values = []
     with open(path, "r") as f:
         for line in f:
-            line = line.strip()
-            if not line:
+            text = line.strip()
+            if not text:
+                # skips the empty lines here
                 continue
-            # TODO: convert to float and handle invalid lines
-            values.append(line)
+            try:
+                value = float(text)
+            except ValueError:
+                # skip lines which cannot be converted to a float
+                continue
+            values.append(value)
     return values
 
 def make_histogram(values, output_path):
