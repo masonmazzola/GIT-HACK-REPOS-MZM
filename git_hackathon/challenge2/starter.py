@@ -7,8 +7,11 @@ def slow_pairwise_distances(matrix):
     matrix: list of lists, shape (n_samples, n_features)
     returns: list of lists, shape (n_samples, n_samples)
     """
+    #stop index error with if, when no rows
     n_rows = len(matrix)
-    n_cols = len(matrix[0]) if n_rows > 0 else 0
+    if n_rows == 0:
+        return []
+    n_cols = len(matrix[0])
 
     # BUGS: lots of nested loops, some indices are wrong,
     # and computation is inefficient.
