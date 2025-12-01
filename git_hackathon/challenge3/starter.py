@@ -32,7 +32,7 @@ def make_histogram(values, output_path):
     if not values:
         print("No values to plot; histogram will not be created.")
         return
-
+#make the plot look nice
     plt.figure()
     plt.hist(values, bins="auto", color="orange", edgecolor="black")
     plt.title("Histogram")
@@ -40,7 +40,7 @@ def make_histogram(values, output_path):
     plt.ylabel("Frequency")
     plt.grid(True, linestyle="--", alpha=0.5)
     plt.tight_layout()
-
+#save the plot here
     plt.savefig(output_path)
     plt.close()
     print("Saving figure to", output_path)
